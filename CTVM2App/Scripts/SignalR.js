@@ -1,6 +1,6 @@
 ﻿$(function () {
     $("#click-me").on("click", function () {
-         myHub.server.getServerDateTime()
+         chat.server.getServerDateTime()
                 .done(function (data) {
                     writeToPage(data);
                 })
@@ -8,8 +8,8 @@
                     writeToPage(e);
                 });
     })
-    var myHub = $.connection.chat;
-    myHub.client.announce = function (message) {
+    var chat = $.connection.chat;
+    chat.client.announce = function (message) {
         writeToPage(message);
     }
     var writeToPage = function (message) {
@@ -19,7 +19,7 @@
         .start()
         .done(function () {
             writeToPage("SignalR is working");
-            myHub.server.announce("Connected");
+            chat.server.announceToEverybody("Connected");
            
         }
     )

@@ -10,6 +10,7 @@ namespace CTVM2App
     [HubName("chat")] //case sensitive - as it is
     public class ChatHub : Hub //camel case in SignalR
     {
+        [HubMethodName("announceToEverybody")]
         public void Announce(string message)
         {
 
