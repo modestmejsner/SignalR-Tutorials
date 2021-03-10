@@ -8,8 +8,7 @@
                     writeToPage(e);
                 });
     })
-    var hub = $.connection.echo;
-    var myHub = $.connection.chatHub;
+    var myHub = $.connection.chat;
     myHub.client.announce = function (message) {
         writeToPage(message);
     }

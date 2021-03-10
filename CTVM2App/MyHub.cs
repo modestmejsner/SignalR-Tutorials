@@ -7,7 +7,7 @@ using System.Web;
 
 namespace CTVM2App
 {
-   // [HubName("chat")] //case sensitive - as it is
+    [HubName("chat")] //case sensitive - as it is
     public class ChatHub : Hub //camel case in SignalR
     {
         public void Announce(string message)
