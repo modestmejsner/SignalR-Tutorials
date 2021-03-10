@@ -1,4 +1,13 @@
 ﻿$(function () {
+    $("#click-me").on("click", function () {
+        $.connection.myHub.server.getServerDateTime()
+            .done(function (data) {
+                writeToPage(data);
+            })
+            .fail(function (e) {
+                writeToPage(e);
+            });
+    })
     var hub = $.connection.echo;
     var myHub = $.connection.echo;
     $.connection.myHub.client.announce = function (message) {
@@ -12,6 +21,8 @@
         .done(function () {
             writeToPage("SignalR is working");
             $.connection.myHub.server.announce("Connected");
+
+
         }
     )
         .fail(function() {
